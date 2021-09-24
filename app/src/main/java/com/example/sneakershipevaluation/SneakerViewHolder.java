@@ -23,7 +23,13 @@ public class SneakerViewHolder extends RecyclerView.ViewHolder {
     }
 
     public void setData(ResponseDTO responseDTO){
-      mTvName.getText().toString();
+        if (responseDTO.getName()!=null){
+            mTvName.setText(responseDTO.getId());
+            mTvPrice.setText(responseDTO.getRetailPrice());
+
+    }
+
+
 
 
     }
