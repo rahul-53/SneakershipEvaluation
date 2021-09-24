@@ -12,9 +12,9 @@ import java.util.List;
 
 public class SneakerAdapter extends RecyclerView.Adapter<SneakerViewHolder> {
 
-    private ArrayList<ResponseDTO> responseList;
+    private ArrayList<SizesDTO> responseList;
 
-    public SneakerAdapter(ArrayList<ResponseDTO> responseList){
+    public SneakerAdapter(ArrayList<SizesDTO> responseList){
         this.responseList= responseList;
     }
 

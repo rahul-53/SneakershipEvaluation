@@ -22,15 +22,10 @@ public class SneakerViewHolder extends RecyclerView.ViewHolder {
         mTvPrice = itemView.findViewById(R.id.tvPrice);
     }
 
-    public void setData(ResponseDTO responseDTO){
-        if (responseDTO.getName()!=null){
+    public void setData(SizesDTO responseDTO){
+
             mTvName.setText(responseDTO.getId());
-            mTvPrice.setText(responseDTO.getRetailPrice());
-
-    }
-
-
-
+            mTvPrice.setText(responseDTO.getSize());
 
     }
 }

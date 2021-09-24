@@ -43,30 +43,25 @@ private SneakerAdapter sneakerAdapter;
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         recyclerView = view.findViewById(R.id.recyclerView);
-
         setRecyclerView();
         callApi();
-
     }
-
     private void callApi() {
         ApiService apiService = Network.getInstance().create(ApiService.class);
         apiService.getSneakers().enqueue(new Callback<ResponseDTO>() {
             @Override
             public void onResponse(Call<ResponseDTO> call, Response<ResponseDTO> response) {
-
-                    sizesDTOArrayList.addAll(response.body().getSizes());
-                    coloursDTOArrayList.addAll(response.body().getColours());
-
+                sizesDTOArrayList.addAll(response.body().getSizes());
             }
             @Override
             public void onFailure(Call<ResponseDTO> call, Throwable t) {
 
             }
-        });
+        }
+        );
     }
     private void setRecyclerView(){
-        sneakerAdapter = new SneakerAdapter(responseDTOList);
+        sneakerAdapter = new SneakerAdapter(sizesDTOArrayList);
         GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(),2);
         recyclerView.setLayoutManager(gridLayoutManager);
         recyclerView.setAdapter(sneakerAdapter);
